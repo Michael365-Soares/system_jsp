@@ -6,19 +6,24 @@
   <packaging>war</packaging>
   <name>system_jsp</name>
   <description>CURSO_JAVA_WEB_JDEV</description>
+	 
   <build>
     <plugins>
-      <plugin>
+    
+     <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.8.1</version>
         <configuration>
           <release>11</release>
         </configuration>
       </plugin>
+      
       <plugin>
         <artifactId>maven-war-plugin</artifactId>
         <version>3.2.3</version>
       </plugin>
+      
     </plugins>
+    
   </build>
 </project>

@@ -7,10 +7,27 @@
 		<title>Sistema JSP</title>
 	</head>
 	<body>
-	    <form action="receber-nome.jsp">
-	        <label>Nome:</label><input type="text" name="nome"/>
-	        <label>Idade:</label><input type="number" name="idade"/>
-	        <label>Enviar:</label><input type="submit" value="Enviar"/>
+	    <h1>Bem-Vindo ao Curso de JSP</h1>
+	    <form action="ServletLogin" method="get">
+	        <table>
+	        
+	            <tr>
+	               <td><label>Nome:</label></td>
+	               <td><input type="text" name="nome"/></td>
+	            </tr>
+	           
+	             <tr>
+	               <td><label>Idade:</label></td>
+	               <td><input type="number" name="idade"/></td>
+	            </tr>
+	            
+	             <tr>
+	               <td><label>Enviar:</label></td>
+	               <td><input type="submit" value="Enviar"/></td>
+	            </tr>
+	            
+	        </table>
 	    </form>
+	    
 	</body>
 </html>
