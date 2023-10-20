@@ -8,6 +8,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import model.ModelLogin;
 
 @WebServlet(urlPatterns={"/ServletLogin"})
 public class ServletLogin extends HttpServlet {
@@ -18,16 +19,44 @@ public class ServletLogin extends HttpServlet {
 
     /*Recebe dados enviados de uma requisição HTTP do tipo GET*/
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String nome=request.getParameter("nome");
-		String idade=request.getParameter("idade");
-		request.setAttribute("nome",nome);
-		request.setAttribute("idade",idade);
-		RequestDispatcher dispatcher=request.getRequestDispatcher("teste.jsp");
-		dispatcher.forward(request, response);
 	}
      
 	/*Recebe dados enviados de um formulário pelo método HTTP do tipo POST*/
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		String login=request.getParameter("login");
+		String password=request.getParameter("password");
+		ModelLogin modelLogin=new ModelLogin();
+		
+		if(login!=null&&!login.isEmpty()&&password!=null&&!password.isEmpty()) {
+			
+	        modelLogin.setLogin(login);
+	        modelLogin.setPassword(password);
+			
+			if(modelLogin.getLogin().equals("admim")&&modelLogin.getPassword().equals("admim")) {
+				
+				request.getSession().setAttribute("login",modelLogin.getLogin());
+				request.setAttribute("login",modelLogin.getLogin());
+				request.setAttribute("password",modelLogin.getPassword());
+				RequestDispatcher dispatcher=request.getRequestDispatcher("principal/principal.jsp");
+				dispatcher.forward(request, response);
+				
+			}else {
+				
+				RequestDispatcher redirecionar=request.getRequestDispatcher("index.jsp");
+				request.setAttribute("msg","Login ou senha foram informados incorretamente...");
+				redirecionar.forward(request, response);
+				
+			}
+			
+		}else {
+			
+			RequestDispatcher redirecionar=request.getRequestDispatcher("index.jsp");
+			request.setAttribute("msg","Por favor, informe login e senha!");
+			redirecionar.forward(request, response);
+			
+		}	
+		
 	}
 
 }

@@ -7,6 +7,6 @@
 	<title>Recebendo dados-TESTE</title>
 	</head>
 	<body>
-	    <h1>O Sr. ${nome} têm ${idade} anos de idade...</h1>
+	    <h1>Seu login é ${login} e sua senha é ${password} ....</h1>
 	</body>
 </html>
