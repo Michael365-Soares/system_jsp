@@ -10,7 +10,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import model.ModelLogin;
 
-@WebServlet(urlPatterns={"/ServletLogin"})
+@WebServlet(urlPatterns={"/principal/ServletLogin","/ServletLogin"})
 public class ServletLogin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -26,6 +26,7 @@ public class ServletLogin extends HttpServlet {
 		
 		String login=request.getParameter("login");
 		String password=request.getParameter("password");
+		String url=request.getParameter("url");
 		ModelLogin modelLogin=new ModelLogin();
 		
 		if(login!=null&&!login.isEmpty()&&password!=null&&!password.isEmpty()) {
@@ -35,15 +36,17 @@ public class ServletLogin extends HttpServlet {
 			
 			if(modelLogin.getLogin().equals("admim")&&modelLogin.getPassword().equals("admim")) {
 				
-				request.getSession().setAttribute("login",modelLogin.getLogin());
-				request.setAttribute("login",modelLogin.getLogin());
-				request.setAttribute("password",modelLogin.getPassword());
-				RequestDispatcher dispatcher=request.getRequestDispatcher("principal/principal.jsp");
+				if(url==null||url.equals("null")) {
+					url="principal/principal.jsp";
+				}
+				
+				request.getSession().setAttribute("userLogado",modelLogin.getLogin());
+				RequestDispatcher dispatcher=request.getRequestDispatcher(url);
 				dispatcher.forward(request, response);
 				
 			}else {
 				
-				RequestDispatcher redirecionar=request.getRequestDispatcher("index.jsp");
+				RequestDispatcher redirecionar=request.getRequestDispatcher("/index.jsp");
 				request.setAttribute("msg","Login ou senha foram informados incorretamente...");
 				redirecionar.forward(request, response);
 				
@@ -51,7 +54,7 @@ public class ServletLogin extends HttpServlet {
 			
 		}else {
 			
-			RequestDispatcher redirecionar=request.getRequestDispatcher("index.jsp");
+			RequestDispatcher redirecionar=request.getRequestDispatcher("/index.jsp");
 			request.setAttribute("msg","Por favor, informe login e senha!");
 			redirecionar.forward(request, response);
 			

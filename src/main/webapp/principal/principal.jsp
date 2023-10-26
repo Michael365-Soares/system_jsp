@@ -4,7 +4,7 @@
 <html>
 	<head>
 	<meta charset="UTF-8">
-	<title>Recebendo dados-TESTE</title>
+	<title>PÁGINA PRINCIPAL</title>
 	</head>
 	<body>
 	    <h1>Seu login é ${login} e sua senha é ${password} ....</h1>
