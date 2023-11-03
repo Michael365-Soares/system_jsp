@@ -20,6 +20,11 @@ public class ConnectionFactory {
 		
 		if(conexao==null) {
 			try {
+				Class.forName("org.postgresql.Driver");
+			} catch (ClassNotFoundException e1) {
+				e1.printStackTrace();
+			}
+			try {
 				conexao=DriverManager.getConnection(url, user, password);
 				conexao.setAutoCommit(false);/*Impedi a realização de alterações no BD sem autorização...*/
 			} catch (SQLException e) {
@@ -38,7 +43,7 @@ public class ConnectionFactory {
 	private static Properties getProperties() {
 		Properties prop=new Properties();
 		try {
-			prop.load(new FileInputStream("C:\\Users\\micha\\eclipse-workspace\\system_jsp\\src\\sgbd_conexao\\config.properties"));
+			prop.load(new FileInputStream("C:\\Users\\micha\\git\\system_jsp\\target\\conexao.properties"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
