@@ -1,0 +1,1 @@
+alter table model_login add constraint login_unique unique (login);
