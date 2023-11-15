@@ -7,6 +7,6 @@
 	<title>PÁGINA PRINCIPAL</title>
 	</head>
 	<body>
-	    <h1>Seu login é ${login} e sua senha é ${password} ....</h1>
+	    <h1>Página principal do system_jsp</h1>
 	</body>
 </html>
