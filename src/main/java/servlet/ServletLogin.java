@@ -22,6 +22,7 @@ public class ServletLogin extends HttpServlet {
 
     /*Recebe dados enviados de uma requisição HTTP do tipo GET*/
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		this.doPost(request, response);
 	}
      
 	/*Recebe dados enviados de um formulário pelo método HTTP do tipo POST*/

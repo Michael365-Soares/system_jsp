@@ -36,19 +36,20 @@
 	    <form action="ServletLogin" method="post" class="row g-3 needs-validation" >
 	    <input type="hidden" value="<%=request.getParameter("url")%>" name="url"/>
 	        
-	               <div class="col-md-6">
+	               <div class="mb-3">
 		               <label class="form-label">Login:</label>
 		               <input type="text" name="login" class="form-control" required="required"/>
 		           </div>
 		           
-		            <div class="col-md-6">
+		            <div class="mb-3">
 		               <label class="form-label">Senha:</label>
 		               <input type="password" name="password" class="form-control" required="required"/>
 		            </div>
 		            
 		            <input type="submit" class="btn btn-primary" value="Acessar"></input>
 	                
-	        <h4>${msg}</h4>
+	                <div class="alert alert-danger" role="alert" _msttexthash="4116788" _msthash="162">${msg}</div>
+	                
 	    </form>
 	    
 	    <!-- Option 1: Bootstrap Bundle with Popper -->
