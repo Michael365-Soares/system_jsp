@@ -26,24 +26,32 @@
                       <!-- Page-header start -->
                       <jsp:include page="page-header.jsp"></jsp:include>
                       <!-- Page-header end -->
-                        <div class="pcoded-inner-content">
+               <div class="pcoded-inner-content">
                <!-- Main-body start -->
                <div class="main-body">
                    <div class="page-wrapper">
                        <!-- Page-body start -->
                        <div class="page-body">
                            <div class="row">
-                               <h1>Conteúdo das páginas do sistema</h1>
+                                 <h1>Cadastro de Usuário</h1>
+                                 <form action="">
+		                               <div class="form-group row">
+		                                    <label class="col-sm-2 col-form-label">Nome</label>
+		                                    <div class="col-sm-10">
+		                                        <input type="text" class="form-control">
+		                                    </div>
+		                                </div>
+	                              </form>
                            </div>
                        </div>
                    </div>
                </div>
             </div>
-        </div>
-      </div>
-      </div>
+           </div>
+       </div>
+     </div>
     </div>
-  </div>
+   </div>
     <jsp:include page="javaScript.jsp"></jsp:include>
 </body>
 

@@ -22,7 +22,15 @@ public class ServletLogin extends HttpServlet {
 
     /*Recebe dados enviados de uma requisição HTTP do tipo GET*/
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		this.doPost(request, response);
+		String acao=request.getParameter("acao");
+		if(!acao.isEmpty()&&acao!=null&&acao.equalsIgnoreCase("logout")) {
+			request.getSession().invalidate();//Mata a sessão do usuário logado
+			RequestDispatcher redirecionar=request.getRequestDispatcher("index.jsp");
+			request.setAttribute("msg","Por favor, realize login novamente!");
+			redirecionar.forward(request, response);
+		}else {
+			this.doPost(request, response);
+		}
 	}
      
 	/*Recebe dados enviados de um formulário pelo método HTTP do tipo POST*/

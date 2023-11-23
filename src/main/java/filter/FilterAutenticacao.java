@@ -40,7 +40,8 @@ public class FilterAutenticacao implements Filter {
 					String urlParaAutenticar=resq.getServletPath();
 					
 					if(userLogado!=null&&!userLogado.isEmpty() &&
-					urlParaAutenticar.equals("/ServletLogin") || urlParaAutenticar.equals("/principal/ServletLogin")){
+					urlParaAutenticar.equals("/ServletLogin") || urlParaAutenticar.equals("/principal/ServletLogin")
+					||resq.getSession().getAttribute("userLogado")!=null){
 						chain.doFilter(request, response);
 					}else {
 						RequestDispatcher redirecionar=resq.getRequestDispatcher("/index.jsp?url="+urlParaAutenticar);

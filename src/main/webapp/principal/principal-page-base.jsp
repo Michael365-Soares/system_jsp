@@ -33,14 +33,17 @@
                        <!-- Page-body start -->
                        <div class="page-body">
                            <div class="row">
-                               <h1>Conteúdo da página base do sistema</h1>
+                               <h1>Layout das páginas do sistema</h1>
                            </div>
                        </div>
                    </div>
                </div>
             </div>
-        </div>
+           </div>
+       </div>
+     </div>
     </div>
+   </div>
     <jsp:include page="javaScript.jsp"></jsp:include>
 </body>
 
